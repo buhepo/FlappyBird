@@ -26,9 +26,9 @@ bird_rotation = 0  # Угол поворота
 bird_image = pygame.image.load('images/bird.png')
 
 # Гравитация и скорость птицы
-gravity = 0.01
-jump_strength = -1
-max_fall_speed = 0.5
+gravity = 0.1
+jump_strength = -3
+max_fall_speed = 1.5
 bird_velocity = min(bird_velocity + gravity, max_fall_speed)
 
 # Параметры первой трубы
@@ -44,7 +44,7 @@ next_tube_x =tube_spacing - tube_width
 
 # Счет и ускорение
 score = 0
-speed_multiplier = 0.2
+speed_multiplier = 0.75
 
 # Флаг для отслеживания конца игры
 game_over = False
@@ -64,7 +64,7 @@ def restart_game():
     next_tube_x = tube_spacing
     score = 0
     game_over = False
-    speed_multiplier = .2  # Сбросить ускорение
+    speed_multiplier = .75  # Сбросить ускорение
 
 # Основной цикл игры
 while True:
@@ -96,7 +96,7 @@ while True:
             tube_y = [tube_height, tube_height + tube_gap]
             next_tube_x = 0.1
             score += 1
-            speed_multiplier += 0.02  # Увеличиваем ускорение
+            speed_multiplier += 0.035  # Увеличиваем ускорение
 
         # Коллизии
         bird_rect = pygame.Rect(bird_x, bird_y, bird_width, bird_height)
